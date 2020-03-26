@@ -130,3 +130,11 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = 'static'
+
+
+if not DEBUG:
+    try:
+        import django_heroku
+        django_heroku.settings(locals())
+    except ImportError:
+        pass
