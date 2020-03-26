@@ -1,2 +1,2 @@
-web:
-    gunicorn sanya_project.wsgi:application
+release: python manage.py migrate
+web: gunicorn sanya_project.wsgi
