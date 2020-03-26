@@ -13,6 +13,8 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 import os
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+from distutils.util import strtobool
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
@@ -24,6 +26,9 @@ SECRET_KEY = '1rz%%31e^8)q)gwhx$sn&tos=%#pmzc&tc*x75^i1@l9l5m^i4'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
+ENV_DEBUG = os.getenv('DEBUG')
+if ENV_DEBUG:
+    DEBUG = strtobool(ENV_DEBUG)
 
 ALLOWED_HOSTS = []
 
